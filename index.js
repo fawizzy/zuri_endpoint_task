@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const port = 5000;
 
-app.get("/", (req, res)=>{
+app.get("/api", (req, res)=>{
     const days = {
         0: "Sunday", 
         1: "Monday",
@@ -22,13 +22,16 @@ app.get("/", (req, res)=>{
     const dateString = "YYYY-MM-DDTHH:mm:ssZ"
     const utc_time = date
     const status_code = "200"
-    const github_file_url = "https://github.com/fawizzy/zuri_endpoint_task.git"
+    const github_file_url = "https://github.com/fawizzy/zuri_endpoint_task/blob/main/index.js"
+    const github_repo_url = "https://github.com/fawizzy/zuri_endpoint_task.git"
     console.log(utc_time)
     res.json({
         slack_name,
-        track,
         current_day,
         utc_time,
+        track,
+        github_file_url,
+        github_repo_url,
         status_code
     })
 
