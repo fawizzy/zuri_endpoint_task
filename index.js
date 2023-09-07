@@ -19,12 +19,12 @@ app.get("/api", (req, res)=>{
     const slack_name = query.slack_name
     const track = query.track
     const current_day = days[date.getDay()]
-    const dateString = "YYYY-MM-DDTHH:mm:ssZ"
-    const utc_time = date
+    let utc_time = JSON.stringify(date)
     const status_code = "200"
     const github_file_url = "https://github.com/fawizzy/zuri_endpoint_task/blob/main/index.js"
     const github_repo_url = "https://github.com/fawizzy/zuri_endpoint_task.git"
-    console.log(utc_time)
+    const utc_millis = utc_time.substring(20,24)
+    utc_time = utc_time.replace(utc_millis,"")
     res.json({
         slack_name,
         current_day,
