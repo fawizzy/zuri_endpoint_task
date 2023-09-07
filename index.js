@@ -25,6 +25,7 @@ app.get("/api", (req, res)=>{
     const github_repo_url = "https://github.com/fawizzy/zuri_endpoint_task.git"
     const utc_millis = utc_time.substring(20,24)
     utc_time = utc_time.replace(utc_millis,"")
+    utc_time = JSON.parse(utc_time)
     res.json({
         slack_name,
         current_day,
